@@ -6,7 +6,7 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const date = require(__dirname + '/modules/date.js');
 
-
+console.log(process.env.DB_URL);
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
