@@ -1,0 +1,26 @@
+<%- include('header') -%>
+<%- include('navigation') -%>  
+<div class="center">
+    <h1><%= title %></h1>
+<p class="description"><%= homeContent %></p>
+<% if(articles){ %>
+    <div class="articles">
+        <% articles.forEach((article)=>{ %>
+         
+        <% let subString =article.content.slice(0,250) + '. . .'; %>
+             
+           <div class="article">
+               <h3><%=article.title %></h3>
+               <div id="content"><%- subString  %></div>
+               <a id='post' href="/post/<%= article._id %>">Read more</a>
+           </div>
+            
+     <%  }) %>
+<% } %>
+
+
+</div>
+</div>
+
+
+<%- include('footer') -%>
