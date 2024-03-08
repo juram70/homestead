@@ -104,6 +104,10 @@ app.post('/update/:id',function(req,res){
    let updateTitle=req.body.title;
    BlogPost.findByIdAndUpdate(id,{title:updateTitle,content:updateContent}).then(res.redirect('/update'));
 });
+app.get('/googlea1700e5962d4fe40.html', function(req, res) {
+  res.sendFile(path.join(__dirname, '/googlea1700e5962d4fe40.html'));
+});
+
 app.listen(process.env.PORT || 3000, function () {
   console.log("listen to port 3000");
 });
