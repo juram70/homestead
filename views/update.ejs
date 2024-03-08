@@ -1,0 +1,19 @@
+<%- include('header') -%>
+<div class="center">
+<% if(posts) { %>
+    <div class="articles">
+        <% posts.forEach((post)=>{ %>
+         
+        <% let subString =post.content.slice(0,250) + '. . .'; %>
+             
+           <div class="article">
+               <h3><%=post.title %></h3>
+               <div id="content"><%- subString  %></div>
+               <a id='post' href="/update/<%= post._id %>">Update</a>
+           </div>
+             
+     <%  }) %>
+     </div>
+<%}%>
+</div>
+<%- include('footer') -%>

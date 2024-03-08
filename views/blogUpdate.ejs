@@ -1,0 +1,11 @@
+<%- include('header') -%>
+<div class="center">
+    
+    <form id="updateForm" method="post">
+      <input type="text" name="title" id="title" placeholder="title" value="<%= blogPost.title %>" />
+      <input type="hidden" name="updateEditorContent" id="updateEditorContent" />
+      <div id="" class="editor" rows="4"><%- blogPost.content %></div>
+      <button type="submit" name="">Save</button>
+    </form>
+  </div>
+<%- include('footer') -%>

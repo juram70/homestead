@@ -66,7 +66,7 @@ app.post("/compose", function (req, res) {
     title: req.body.title,
     content: req.body.editorContent,
   });
-console.log(req.body);
+
   article.save().then(() => {
     res.redirect("/");
   });
@@ -87,7 +87,23 @@ app.get("/post/:id", function (req, res) {
       console.log(e);
     });
 });
-
+app.get('/update',function(req,res){
+   BlogPost.find().then((dbPosts)=>{
+    res.render('update',{pageTitle:"update",posts:dbPosts,year:date.year()});
+   });
+  
+});
+app.get('/update/:id',function(req,res){
+  let id=req.params.id;
+  BlogPost.findById(id).then((post)=>{res.render('blogUpdate',{pageTitle:"update blog",year:date.year(),blogPost:post});});
+  
+});
+app.post('/update/:id',function(req,res){
+   let id=req.params.id;
+   let updateContent=req.body.updateEditorContent;
+   let updateTitle=req.body.title;
+   BlogPost.findByIdAndUpdate(id,{title:updateTitle,content:updateContent}).then(res.redirect('/update'));
+});
 app.listen(process.env.PORT || 3000, function () {
   console.log("listen to port 3000");
 });

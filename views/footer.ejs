@@ -16,8 +16,13 @@
             [{ 'list': 'ordered'}, { 'list': 'bullet' }],
             [{ 'align': [] }],
             ['video'],
-            ['image']
-        ]
+            ['link','image'],
+            [{ 'font': [] }],
+             [{ 'size': ['small', false, 'large', 'huge'] }]
+        ],
+        clipboard: {
+                matchVisual: false // Enable plain text paste
+            },
     }
         });
 
@@ -35,7 +40,25 @@
     // Submit the form
     this.submit();
 });
+
+$('#updateForm').submit(function(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+
+    // Get the HTML content of the Quill editor
+    var content = quill.root.innerHTML;
+     
+
+    // Set the content to a hidden input field
+    $('#updateEditorContent').val(content);
+
+    // Submit the form
+    this.submit();
+});
    });
+
+   
   
 </script>
+
 </html>
